@@ -226,6 +226,11 @@ class Simulation {
     });
     Matter.World.add(this.engine.world, [this.mouseConstraint]);
 
+    // Fixes edge case where user moves mouse out of browser window
+    this.element.addEventListener("mouseleave", (event) => {
+      this.mouseConstraint.mouse.mouseup(event);
+    });
+
     this.createBall();
     this.createWalls();
 
