@@ -23,12 +23,18 @@
   </head>
   <body class="bg-rose-300">
     <main class="w-full h-dvh relative overflow-hidden">
-      <canvas
-        id="zdog-canvas"
-        width="120"
-        height="120"
-        class="absolute inset-0 mx-auto my-auto"
-      ></canvas>
+      <div
+        id="smiley-container"
+        class="absolute inset-0 size-[120px] my-auto mx-auto hover:cursor-grab"
+      >
+        <div class="sparkling w-full h-full z-10"></div>
+        <canvas
+          id="zdog-canvas"
+          width="120"
+          height="120"
+          class="absolute inset-0"
+        ></canvas>
+      </div>
     </main>
 
     <canvas id="matter-canvas" class="absolute inset-0 opacity-0"> </canvas>
