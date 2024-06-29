@@ -9,7 +9,7 @@ import { Sparkling } from "./sparkling.js";
 import { randomInt, randomFloat } from "./random.js";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
-import { CustomBounce } from "gsap-trial/CustomBounce";
+import { CustomBounce } from "./CustomBounce.js";
 import { Vector } from "matter-js";
 
 gsap.registerPlugin(CustomEase, CustomBounce);
@@ -162,10 +162,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const firstClick = () => {
     document.body.removeEventListener("mousedown", firstClick);
+    document.body.removeEventListener("touchstart", firstClick);
     simulation.ball.isStatic = false;
   };
 
   document.body.addEventListener("mousedown", firstClick);
+  document.body.addEventListener("touchstart", firstClick);
 });
 
 class Mouse {
