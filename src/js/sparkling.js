@@ -1,8 +1,10 @@
-class Sparkling {
+export class Sparkling {
   // https://www.joshwcomeau.com/react/animated-sparkles-in-react/
   // https://web.archive.org/web/20210417050209/https://renerehme.dev/blog/animated-sparkles-in-jquery
-  constructor(color = "hsl(50deg, 100%, 50%)") {
+  constructor({ color = "hsl(50deg, 100%, 90%)", sizeMin = 20, sizeMax = 30 }) {
     this.color = color;
+    this.sizeMin = sizeMin;
+    this.sizeMax = sizeMax;
     this.svgPath =
       "M80 0C80 0 84.2846 41.2925 101.496 58.504C118.707 75.7154 160 80 160 80C160 80 118.707 84.2846 101.496 101.496C84.2846 118.707 80 160 80 160C80 160 75.7154 118.707 58.504 101.496C41.2925 84.2846 0 80 0 80C0 80 41.2925 75.7154 58.504 58.504C75.7154 41.2925 80 0 80 0Z";
     this.sparkle();
@@ -43,7 +45,7 @@ class Sparkling {
   random = (min, max) => Math.floor(Math.random() * (max + 1 - min)) + min;
 
   addStar() {
-    const size = this.random(20, 30);
+    const size = this.random(this.sizeMin, this.sizeMax);
 
     const offset = 0;
     const top = this.random(0 - offset, 100 + offset);

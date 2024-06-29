@@ -21,6 +21,7 @@
   position: relative;
   overflow: visible;
   display: inline-block;
+  animation: squiggly-anim 50ms infinite;
 }
 .sparkling > span {
   z-index: 10;
@@ -38,3 +39,25 @@
   stroke-width: 4px;
   stroke-linejoin: round;
 } */
+
+@keyframes squiggly-anim {
+  0% {
+    filter: url("#squiggly-0");
+  }
+  25% {
+    filter: url("#squiggly-1");
+  }
+  50% {
+    filter: url("#squiggly-2");
+  }
+  75% {
+    filter: url("#squiggly-3");
+  }
+  100% {
+    filter: url("#squiggly-4");
+  }
+}
+
+#smiley-container {
+  animation: squiggly-anim 300ms infinite;
+}

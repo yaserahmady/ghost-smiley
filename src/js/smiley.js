@@ -1,11 +1,17 @@
-class Smiley {
+import Zdog from "zdog";
+
+export class Smiley {
   constructor({
     element,
+    size = 120,
+    zoom = 1,
     foregroundColor = "#000000",
     backgroundColor = "#f7d247",
     drawOutline = false,
   }) {
     this.element = element;
+    this.size = size;
+    this.zoom = zoom;
     this.foregroundColor = foregroundColor;
     this.backgroundColor = backgroundColor;
     this.drawOutline = drawOutline;
@@ -22,13 +28,14 @@ class Smiley {
   paint() {
     this.illustration = new Zdog.Illustration({
       element: this.element,
+      zoom: this.zoom,
     });
 
     if (this.drawOutline) {
       this.outline = new Zdog.Ellipse({
         addTo: this.illustration,
-        width: 120,
-        height: 120,
+        width: this.size,
+        height: this.size,
         stroke: 6,
         fill: false,
         quarters: 1,
@@ -51,7 +58,7 @@ class Smiley {
     this.face = new Zdog.Shape({
       addTo: this.illustration,
       color: this.backgroundColor,
-      stroke: 114,
+      stroke: this.size,
     });
 
     this.eye = new Zdog.Ellipse({

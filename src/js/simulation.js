@@ -1,4 +1,6 @@
-class Simulation {
+import Matter from "matter-js";
+
+export class Simulation {
   constructor({
     element,
     ballSize,
@@ -81,6 +83,7 @@ class Simulation {
       window.innerHeight / 2,
       this.ballSize,
       {
+        label: "ball",
         color: "#000",
         restitution: 0.8,
       }
@@ -98,6 +101,7 @@ class Simulation {
       window.innerWidth,
       wallWidth * 2,
       {
+        label: "ground",
         color: "#000",
         isStatic: true,
       }
@@ -109,6 +113,7 @@ class Simulation {
       window.innerWidth,
       wallWidth * 2,
       {
+        label: "ceiling",
         color: "#000",
         isStatic: true,
       }
@@ -120,6 +125,7 @@ class Simulation {
       wallWidth * 2,
       window.innerHeight,
       {
+        label: "leftWall",
         color: "#000",
         isStatic: true,
       }
@@ -131,6 +137,7 @@ class Simulation {
       wallWidth * 2,
       window.innerHeight,
       {
+        label: "rightWall",
         color: "#000",
         isStatic: true,
       }
